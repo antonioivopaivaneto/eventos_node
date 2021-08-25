@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/57d3777260.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../public/stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body class="bg-dark text-white">
+<div class="container-fluid">
+    <header>
+        <div class="jumbotron bg-info p-5 ">
+            <h1 class="display-4">Eventos</h1>
+            <p class="lead">    Welcome,<%= user.nome %>
+        </p>
+           
+          </div>
+    </header>
+    
+
+    <div class="container-fluid pt-5">
+      <div class="row text-white">
+        <nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column text-white">
+              <li class="nav-item">
+                <a class="nav-link active text-white btn btn-outline-info" href="/eventos/listar">
+                  <span data-feather="home"></span>
+                 Lista de Eventos<span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white btn btn-outline-info" href="/eventos/novo">
+                  <span data-feather="file"></span>
+                  Cadastrar novo 
+                  Evento
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white btn btn-outline-info" href="/usuarios/novo">
+                  <span data-feather="shopping-cart"></span>
+                  Listar Usuarios
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white btn btn-outline-info" href="/usuarios/novo">
+                  <span data-feather="shopping-cart"></span>
+                  Cadastro de Usuarios
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white btn btn-outline-info" href="/logout">
+                  <span data-feather="shopping-cart"></span>
+                  Sair
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+        </nav>
+
+        <div class="row ml-auto centered d-flex justify-content-center">
+          <div class="col-md-6 text-center ml-auto">
+            <div class="p-5 m-5 border border-light ">
+        <table class="table text-white">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Descrição</th>
+              <th scope="col">Data</th>
+              <th scope="col">Preço</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% eventosList.forEach(function(evento, index){ %>
+
+            <tr>
+              <th><%= evento.descricao %></th>
+              <td><%= momentParam(evento.data).format("DD/MM/YYYY") %></td>
+              <td>R$ <%= evento.preco %></td>
+            </tr>
+
+          <% }) %>
+
+          </tbody>
+        </table>
+
+</div>
+</div>
+</div>
+</div>
+
+    <footer class="pt-5">
+        <p class="text-center fixed-bottom">todos direitos reservados</p>
+    </footer>
+    
+</body>
+</html>
